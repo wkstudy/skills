@@ -10,7 +10,7 @@
   - **欠费**：`400` — `Access denied, please make sure your account is in good standing`（type/code `Arrearage`）
   - 限流：`429` — rate limit
 - 识别建议：白名单只放超时/连接类；上述计费类一律中止。
-- 换模型：`PWA_CHAT_MODEL` 改模型名，但 **base_url 可能没有独立环境变量**，换接入点要改代码默认值。
+- 换模型时注意：**改模型名的环境变量往往有，但 base_url 未必有独立开关**——换接入点（endpoint）可能要改代码里的默认值，别只改模型名。
 
 ## arize-phoenix evals（`phoenix.evals`）
 
