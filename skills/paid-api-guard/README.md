@@ -5,8 +5,10 @@
 ## 安装
 
 ```bash
-npx skills add https://github.com/wkstudy/skills --skill paid-api-guard --agent kiro-cli
+npx skills add https://github.com/wkstudy/skills --skill paid-api-guard --agent claude-code
 ```
+
+（`--agent` 换成你用的终端，如 kiro-cli / cursor / codex；或 `'*'` 装到全部。）
 
 ## 覆盖什么
 

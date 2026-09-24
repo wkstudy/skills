@@ -10,14 +10,14 @@
 
 ## 安装
 
-任选一个 agent 终端安装，例如 kiro-cli / claude-code / cursor：
+任选一个 agent 终端安装（示例用 claude-code，换成你自己的终端即可）：
 
 ```bash
-npx skills add https://github.com/wkstudy/skills --skill paid-api-guard --agent kiro-cli
+npx skills add https://github.com/wkstudy/skills --skill paid-api-guard --agent claude-code
 ```
 
 - `--skill <名字>`：按 skill 名安装
-- `--agent <名字>`：装到哪个 agent（`npx skills add --help` 看支持列表；`*` 表示全部）
+- `--agent <名字>`：装到哪个 agent（`npx skills add --help` 看支持列表；`*` 表示全部，如 kiro-cli / cursor / codex 等）
 - `-g`：装到全局；`-y`：跳过交互
 
 ## 新增一个 skill
