@@ -92,3 +92,23 @@ scores = await judge(load(run_id))    # 轻阶段，可反复重跑（--rejudge�
 await write_scores(scores)        # 先落已拿到的
 assert_complete(expected, scores) # 再校验，不全就标 failed（但数据已保住）
 ```
+
+## 8. 配额未知时：低起步 + 429 退避探测
+
+不知道对方 TPM/RPM 时，别按"无限配额"盲跑。先查文档/响应头/控制台，**查不到就问用户**（他可能知道账号档位）；仍不确定就用自适应策略——低并发起步，把 429 当探测信号，撞到就退避降速，让限流器自己找到天花板。
+
+```python
+concurrency = 2                       # 未知配额 → 低起步，不要拉满
+for attempt in range(1, MAX_RETRIES + 1):
+    try:
+        return await call()
+    except Exception as e:
+        if is_rate_limit(str(e)):     # 429 必须在可重试白名单里
+            await asyncio.sleep(2 ** attempt)   # 指数退避
+            continue
+        if not is_retriable(str(e)):
+            raise
+# 顺带：从响应用量字段反推单次 token / 实际速率，逐步校准并发
+```
+
+关键：**429 不进白名单 → 一撞限流就崩**；进了白名单 + 退避 → 配额未知最坏也只是变慢，不会失败。
