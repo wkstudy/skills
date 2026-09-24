@@ -1,0 +1,9 @@
+# 平台安装产物 / 消费侧记录（不进源仓库）
+.kiro/
+.claude/
+.comate/
+**/.skill-meta.json
+skills-lock.json
+
+# 系统
+.DS_Store
