@@ -7,6 +7,7 @@
 | Skill | 描述 | 安装 |
 | --- | --- | --- |
 | [**paid-api-guard**](skills/paid-api-guard) | 调用付费外部 API（LLM / embedding / rerank / 三方 SaaS）前的防护手册：并发、超时、TPM/RPM 配额、计费与欠费、失败语义、完整性断言。随踩坑随累积案例。 | `npx skills add https://github.com/wkstudy/skills --skill paid-api-guard` |
+| [**backend-guard**](skills/backend-guard) | 个人后端踩坑手册：只收录亲历/亲学的坑，随踩随加。首个领域=数据库锁（无索引 UPDATE 锁全表等）。case 分学习/实战两种来源，面向 vibecoding 的前端。 | `npx skills add https://github.com/wkstudy/skills --skill backend-guard` |
 
 ## 安装
 
